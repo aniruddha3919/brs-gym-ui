@@ -1,0 +1,21 @@
+
+> brs-gym-elevate-next@0.1.0 build
+> next build
+
+▲ Next.js 16.1.6 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 6.1s
+  Running TypeScript ...
+Failed to compile.
+
+./src/components/ui/resizable.tsx:2:37
+Type error: Cannot find module 'react-resizable-panels' or its corresponding type declarations.
+
+[0m [90m 1 |[39m [36mimport[39m { [33mGripVertical[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33m*[39m [36mas[39m [33mResizablePrimitive[39m [36mfrom[39m [32m"react-resizable-panels"[39m[33m;[39m
+ [90m   |[39m                                     [31m[1m^[22m[39m
+ [90m 3 |[39m
+ [90m 4 |[39m [36mimport[39m { cn } [36mfrom[39m [32m"@/lib/utils"[39m[33m;[39m
+ [90m 5 |[39m[0m
+Next.js build worker exited with code: 1 and signal: null

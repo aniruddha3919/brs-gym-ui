@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.brsgym.in/sitemap.xml
+Sitemap: https://brs-gym.vercel.app/sitemap.xml

@@ -76,7 +76,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-md py-1' : 'bg-transparent py-4'}`}>
-      <audio ref={audioRef} src="/bg-audio.mpeg" loop autoPlay />
+      <audio ref={audioRef} src="/bg-audio.mpeg" loop preload="none" />
       <div className="container mx-auto flex items-center justify-between px-3 sm:px-4 md:px-6">
         <a href="#hero" className="flex items-center">
           <Image

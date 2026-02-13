@@ -4,10 +4,21 @@ import { motion } from "framer-motion";
 import { Play, Star } from "lucide-react";
 
 const videoPlaceholders = [
-  { title: "Rahul's 3-Month Transformation", views: "12K views" },
-  { title: "Training Day at BRS Gym", views: "8.5K views" },
-  { title: "Member Spotlight: Priya", views: "6.2K views" },
-  { title: "Strength Training Results", views: "9.1K views" },
+  {
+    title: "Transformation 1",
+    views: "Featured",
+    youtubeId: "3GQV49cKbmY"
+  },
+  {
+    title: "Transformation 2",
+    views: "Featured",
+    youtubeId: "LLwxOWJOhzE"
+  },
+  {
+    title: "Transformation 3",
+    views: "Featured",
+    youtubeId: "7IVEBoNSyAw"
+  },
 ];
 
 const reviews = [
@@ -25,7 +36,7 @@ const reviews = [
 
 const SocialProofSection = () => {
   return (
-    <section id="social-proof" className="py-20 bg-background">
+    <section id="social-proof" className="py-20 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Video Proof */}
         <motion.div
@@ -42,25 +53,33 @@ const SocialProofSection = () => {
             Past Few years we transaform severel members from 0 to FIT
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {videoPlaceholders.map((video, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="relative aspect-[9/16] bg-card rounded-lg overflow-hidden group cursor-pointer border border-border"
+                whileHover={{ y: -5 }}
+                className="flex flex-col gap-3"
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-14 h-14 bg-primary/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Play size={24} className="text-primary-foreground ml-1" fill="currentColor" />
+                <div className="relative aspect-[9/16] w-full bg-black rounded-2xl overflow-hidden border border-border/50 shadow-xl group">
+                  {/* Clipping Container for YouTube UI */}
+                  <div className="absolute inset-0 scale-[1.3] pointer-events-none">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${video.youtubeId}&controls=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1`}
+                      className="w-full h-full border-0 transform translate-y-[-5%]"
+                      allow="autoplay; encrypted-media"
+                    />
                   </div>
+
+                  {/* Overlay to catch clicks if needed or just to darken */}
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <p className="text-foreground text-xs font-body font-semibold line-clamp-2">{video.title}</p>
-                  <p className="text-muted-foreground text-xs font-body mt-1">{video.views}</p>
+                <div className="text-center px-2">
+                  <p className="text-foreground font-body font-semibold text-sm">{video.title}</p>
+                  <p className="text-primary text-[10px] uppercase tracking-widest font-display">{video.views}</p>
                 </div>
               </motion.div>
             ))}

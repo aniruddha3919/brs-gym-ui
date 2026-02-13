@@ -100,13 +100,22 @@ const HeroSection = () => {
         style={{ scale }}
       >
         <div className="absolute inset-0 w-full h-full overflow-hidden">
-          {/* Hero Background Video */}
+          {/* Desktop: YouTube Background */}
+          <div className="hidden md:block absolute inset-0 w-full h-full pointer-events-none">
+            <iframe
+              className="absolute top-1/2 left-1/2 w-[180%] h-[180%] transform -translate-x-1/2 -translate-y-1/2 opacity-40 grayscale-[20%]"
+              src="https://www.youtube.com/embed/M7NWZDeoj2M?autoplay=1&mute=1&loop=1&playlist=M7NWZDeoj2M&controls=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&showinfo=0"
+              allow="autoplay; encrypted-media"
+            />
+          </div>
+
+          {/* Mobile: Local Video Background */}
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none"
+            className="md:hidden absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none"
           >
             <source src="/hero-video.mp4" type="video/mp4" />
           </video>
@@ -278,24 +287,42 @@ const HeroSection = () => {
 
           {/* Social Proof Stats */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="flex items-center justify-start gap-2 sm:gap-3 mt-5"
+            className="flex items-center gap-4 mt-8 bg-black/40 backdrop-blur-md p-3 rounded-2xl border border-white/5 w-fit"
           >
-            <div className="flex -space-x-1.5 sm:-space-x-2">
-              {[1, 2, 3].map((i) => (
-                <div
+            <div className="flex -space-x-3">
+              {[
+                "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=100&h=100&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=100&h=100&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1594381898411-846e7d193883?q=80&w=100&h=100&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1550345332-09e3ac987658?q=80&w=100&h=100&auto=format&fit=crop",
+              ].map((src, i) => (
+                <motion.div
                   key={i}
-                  className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full border-2 border-black bg-zinc-700 flex items-center justify-center overflow-hidden"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1 + i * 0.1 }}
+                  className="w-10 h-10 rounded-full border-2 border-zinc-900 bg-zinc-800 overflow-hidden relative shadow-lg"
                 >
-                  <div className={`w-full h-full ${i === 1 ? 'bg-gradient-to-br from-primary/50 to-primary/20' : i === 2 ? 'bg-gradient-to-br from-blue-400/50 to-blue-600/20' : 'bg-gradient-to-br from-zinc-500 to-zinc-700'}`} />
-                </div>
+                  <img src={src} alt="Gym Member" className="w-full h-full object-cover" />
+                </motion.div>
               ))}
+              <div className="w-10 h-10 rounded-full border-2 border-zinc-900 bg-primary flex items-center justify-center shadow-lg relative z-10">
+                <span className="text-black text-[10px] font-bold">+700</span>
+              </div>
             </div>
-            <span className="text-white/70 font-semibold text-[9px] sm:text-[10px] md:text-xs tracking-wide sm:tracking-wider uppercase ">
-              5,000+ ACTIVE MEMBERS
-            </span>
+            <div className="flex flex-col">
+              <div className="flex items-center gap-1">
+                {[1, 2, 3, 4, 5].map((s) => (
+                  <Star key={s} size={10} className="fill-primary text-primary" />
+                ))}
+              </div>
+              <span className="text-white font-display font-bold text-xs tracking-wider uppercase">
+                700+ ACTIVE MEMBERS
+              </span>
+            </div>
           </motion.div>
         </div>
       </div>

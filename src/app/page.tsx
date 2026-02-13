@@ -6,6 +6,7 @@ import SocialProofSection from "@/components/SocialProofSection";
 import BranchesSection from "@/components/BranchesSection";
 import AboutSection from "@/components/AboutSection";
 import GallerySection from "@/components/GallerySection";
+import OpeningHoursSection from "@/components/OpeningHoursSection";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 
@@ -20,6 +21,7 @@ export default function Home() {
         <BranchesSection />
         <AboutSection />
         <GallerySection />
+        <OpeningHoursSection />
         <Footer />
       </div>
     </>

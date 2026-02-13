@@ -13,11 +13,11 @@ const GallerySection = () => {
   // ];
 
   const galleryImages = [
-    "https://lh3.googleusercontent.com/p/AF1QipM0bx1pUUj4rBjmQ2GgSgihmM4PFwrJaI39Dfgv=s1000",
+    "https://lh3.googleusercontent.com/d/147vSAGRWFTJLc-LW5es2LrkwaIIpGe6T",
     "https://lh3.googleusercontent.com/gps-cs-s/AHVAwerXDyr3DHse1Cfh0oeKecy35ztUbf6ittJ7CHSQF2k23Zi5Wr4mW3mIJluNIhwBQ6CYgRe2A6ycmTfcNLkKSwF2r9ZSwRmJFZBxJwpb1VCM7DG3_G-TmBxk00pK2V7C3Lw9Awgn=s1000",
     "https://lh3.googleusercontent.com/gps-cs-s/AHVAwephc21JGUlLh9XSSZ-Utzg5ROnz5oGd3zp4k99GjVpIGbaN2wqbhu-kstqVbKxyYFJ0x0riURZvKczixb-QNmcLEzUn95sczs_TjVXKmDrfAg4p5ruNY7etSNxT_DKHc66ZNKHYSA=s1000",
-    "https://lh3.googleusercontent.com/gps-cs-s/AHVAweod5_YQKP2nbSCKZ7cEdS5DhJ4CT5uZf2M8iO4oHc6ZA-3uPgFKrn2MEcbMidYRSBKyc0Vmhm7t9VtbvEnP4KVEeH1kMGeubqzL_bvBRdNhEG3Apo2vbBEAt_IEMeZYbl9CT1w=s1000",
-    "https://lh3.googleusercontent.com/p/AF1QipOUadU8AAF7Fp09pSUYkBdcGYSNA9V58Zk5yLjv=s1000",
+    "https://lh3.googleusercontent.com/d/1nlGPMaBYbrZFtQmETRJfBMUReYfl9fTL",
+    "https://lh3.googleusercontent.com/d/1Vvz35D8-W4q7gAIaDjNvPe1fbgL3lwc6",
     "https://lh3.googleusercontent.com/gps-cs-s/AHVAweqXRclDpz-A0C8kGDZ9_9T_lSOa54QEJjxdrmu1QHEnRCa7XzN_mN_-IcTSLP5KmCKW1jMM9sf16mHhhiX7ycn2zJpC2hetUcFgR2XNgkadZOsVvnXKvYvh_fIRF7J-5Z_kAF0=s1000",
   ];
 

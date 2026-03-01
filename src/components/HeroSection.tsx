@@ -117,7 +117,7 @@ const HeroSection = () => {
             playsInline
             className="md:hidden absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none"
           >
-            <source src="/hero-video.mp4" type="video/mp4" />
+            <source src="/hero-video-2.mp4" type="video/mp4" />
           </video>
         </div>
 

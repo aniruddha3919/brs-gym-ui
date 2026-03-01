@@ -1,14 +1,14 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import SocialProofSection from "@/components/SocialProofSection";
-import BranchesSection from "@/components/BranchesSection";
-import AboutSection from "@/components/AboutSection";
-import GallerySection from "@/components/GallerySection";
-import OpeningHoursSection from "@/components/OpeningHoursSection";
-import Footer from "@/components/Footer";
-import LoadingScreen from "@/components/LoadingScreen";
+import { Navbar, Footer, LoadingScreen } from "@/components/layout";
+import {
+  HeroSection,
+  SocialProofSection,
+  BranchesSection,
+  AboutSection,
+  GallerySection,
+  OpeningHoursSection,
+} from "@/components/sections";
 
 export default function Home() {
   return (

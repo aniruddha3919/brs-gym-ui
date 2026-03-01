@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Bebas_Neue } from "next/font/google"; // Updated import
 import "./globals.css";
 import Providers from "./providers";
-import SplashCursor from "@/components/SplashCursor";
+import { SplashCursor } from "@/components/layout";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";

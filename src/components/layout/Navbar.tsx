@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Volume2, VolumeX } from "lucide-react";
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
+import { colors } from "@/lib/theme";
 
 const navLinks = [
   { label: "Home", href: "#hero" },
@@ -94,7 +95,7 @@ const Navbar = () => {
             <a
               key={link.href}
               href={link.href}
-              className="font-body text-xs lg:text-sm font-medium text-foreground/70 hover:text-primary transition-colors uppercase tracking-wider"
+              className={`font-body text-xs lg:text-sm font-medium ${colors.foreground}/70 hover:${colors.primary} transition-colors uppercase tracking-wider`}
             >
               {link.label}
             </a>
@@ -104,7 +105,7 @@ const Navbar = () => {
         {/* Audio Control - Replace WhatsApp */}
         <button
           onClick={toggleAudio}
-          className="flex items-center justify-center p-3 rounded-full bg-primary/10 border border-primary/20 text-primary hover:bg-primary hover:text-black transition-all duration-300 group shadow-lg shadow-primary/10 mr-2 sm:mr-4"
+          className={`flex items-center justify-center p-3 rounded-full ${colors.primaryBg}/10 border ${colors.primaryBg}/20 ${colors.primary} hover:${colors.primaryBg} hover:text-black transition-all duration-300 group shadow-lg shadow-primary/10 mr-2 sm:mr-4`}
           aria-label={isPlaying ? "Mute Audio" : "Unmute Audio"}
         >
           {isPlaying ? (

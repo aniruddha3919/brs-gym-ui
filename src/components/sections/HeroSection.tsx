@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform, Variants } from "framer-motion";
+import { motion, useScroll, useTransform, Variants, AnimatePresence } from "framer-motion";
 import { Star, Sparkles, Gift } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
@@ -9,6 +9,27 @@ const HeroSection = () => {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const scale = useTransform(scrollY, [0, 300], [1, 1.1]);
+
+  const [isVideoLoaderReady, setIsVideoLoaderReady] = useState(false);
+
+  useEffect(() => {
+    // Safety timeout: dismiss loader after 8 seconds maximum
+    const timer = setTimeout(() => {
+      setIsVideoLoaderReady(true);
+    }, 8000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!isVideoLoaderReady) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isVideoLoaderReady]);
 
   // Typewriter animation state
   const [displayedHeading1, setDisplayedHeading1] = useState("");
@@ -21,6 +42,8 @@ const HeroSection = () => {
   const description = "Experience next-level training at the best gym in Hatiara. A high-energy environment designed for performance, transformation, and total wellness.";
 
   useEffect(() => {
+    if (!isVideoLoaderReady) return;
+
     // Blinking cursor
     const cursorInterval = setInterval(() => {
       setShowCursor((prev) => !prev);
@@ -93,8 +116,83 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="hero" className="relative h-screen min-h-[600px] flex flex-col items-center justify-between overflow-hidden bg-black">
-      {/* Background Video with Parallax */}
+    <>
+      <AnimatePresence>
+        {!isVideoLoaderReady && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center"
+          >
+            <motion.div
+              animate={{ 
+                scale: [1, 1.1, 1],
+                opacity: [0.8, 1, 0.8]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="relative flex flex-col items-center"
+            >
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl" />
+              {/* Diamond Icon */}
+              <svg
+                width="64"
+                height="64"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="relative z-10 mb-6 drop-shadow-[0_0_15px_rgba(250,204,21,0.5)]"
+              >
+                <path
+                  d="M12 2L4 8L12 22L20 8L12 2Z"
+                  fill="url(#diamond-gradient-loader)"
+                  stroke="#FACC15"
+                  strokeWidth="1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M4 8L12 22L20 8H4Z"
+                  fill="url(#diamond-gradient-dark-loader)"
+                  opacity="0.8"
+                />
+                <defs>
+                  <linearGradient id="diamond-gradient-loader" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#FACC15" />
+                    <stop offset="0.5" stopColor="#EAB308" />
+                    <stop offset="1" stopColor="#CA8A04" />
+                  </linearGradient>
+                  <linearGradient id="diamond-gradient-dark-loader" x1="12" y1="8" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#CA8A04" />
+                    <stop offset="1" stopColor="#854D0E" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              
+              <div className="flex flex-col items-center gap-3">
+                <h2 className="text-white font-display text-2xl tracking-widest uppercase relative z-10">BRS GYM</h2>
+                <div className="h-1 w-48 bg-zinc-800 rounded-full overflow-hidden relative z-10">
+                  <motion.div 
+                    className="absolute top-0 left-0 h-full bg-primary"
+                    animate={{ width: ["0%", "100%", "0%"], left: ["0%", "0%", "100%"] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                </div>
+                <p className="text-zinc-500 font-display text-xs uppercase tracking-[0.2em] relative z-10">
+                  Loading Experience...
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <section id="hero" className="relative h-screen min-h-[600px] flex flex-col items-center justify-between overflow-hidden bg-black">
+        {/* Background Video with Parallax */}
       <motion.div
         className="absolute inset-0 z-0 pointer-events-none"
         style={{ scale }}
@@ -106,6 +204,11 @@ const HeroSection = () => {
               className="absolute top-1/2 left-1/2 w-[180%] h-[180%] transform -translate-x-1/2 -translate-y-1/2 opacity-40 grayscale-[20%]"
               src="https://www.youtube.com/embed/M7NWZDeoj2M?autoplay=1&mute=1&loop=1&playlist=M7NWZDeoj2M&controls=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&showinfo=0"
               allow="autoplay; encrypted-media"
+              onLoad={() => {
+                if (typeof window !== "undefined" && window.innerWidth >= 768) {
+                  setIsVideoLoaderReady(true);
+                }
+              }}
             />
           </div>
 
@@ -115,6 +218,16 @@ const HeroSection = () => {
             loop
             muted
             playsInline
+            onCanPlayThrough={() => {
+              if (typeof window !== "undefined" && window.innerWidth < 768) {
+                setIsVideoLoaderReady(true);
+              }
+            }}
+            onLoadedData={() => {
+              if (typeof window !== "undefined" && window.innerWidth < 768) {
+                setIsVideoLoaderReady(true);
+              }
+            }}
             className="md:hidden absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none"
           >
             <source src="/hero-video-2.mp4" type="video/mp4" />
@@ -327,6 +440,7 @@ const HeroSection = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

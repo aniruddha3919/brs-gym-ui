@@ -13,7 +13,7 @@ const Footer = () => {
     { label: "About", href: "#about" },
     { label: "Gallery", href: "#gallery" },
     { label: "Contact", href: "/contact" },
-    { label: "Best Gym in Hatiara", href: "/best-gym-in-hatiara" },
+    
   ];
 
   return (

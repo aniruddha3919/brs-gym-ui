@@ -3,22 +3,19 @@
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 
-const GallerySection = () => {
-  // TODO: Add your image URLs here
-  // Example format:
-  // const galleryImages = [
-  //   "https://your-image-url.com/image1.jpg",
-  //   "https://your-image-url.com/image2.jpg",
-  //   "https://your-image-url.com/image3.jpg",
-  // ];
+import image1 from "../../assets/image-1.jpeg";
+import image2 from "../../assets/image-2.jpeg";
+import image3 from "../../assets/image-3.jpeg";
+import image4 from "../../assets/image-4.jpeg";
+import image5 from "../../assets/image-5.jpeg";
 
+const GallerySection = () => {
   const galleryImages = [
-    "https://lh3.googleusercontent.com/d/147vSAGRWFTJLc-LW5es2LrkwaIIpGe6T",
-    "https://lh3.googleusercontent.com/gps-cs-s/AHVAwerXDyr3DHse1Cfh0oeKecy35ztUbf6ittJ7CHSQF2k23Zi5Wr4mW3mIJluNIhwBQ6CYgRe2A6ycmTfcNLkKSwF2r9ZSwRmJFZBxJwpb1VCM7DG3_G-TmBxk00pK2V7C3Lw9Awgn=s1000",
-    "https://lh3.googleusercontent.com/gps-cs-s/AHVAwephc21JGUlLh9XSSZ-Utzg5ROnz5oGd3zp4k99GjVpIGbaN2wqbhu-kstqVbKxyYFJ0x0riURZvKczixb-QNmcLEzUn95sczs_TjVXKmDrfAg4p5ruNY7etSNxT_DKHc66ZNKHYSA=s1000",
-    "https://lh3.googleusercontent.com/d/1nlGPMaBYbrZFtQmETRJfBMUReYfl9fTL",
-    "https://lh3.googleusercontent.com/d/1Vvz35D8-W4q7gAIaDjNvPe1fbgL3lwc6",
-    "https://lh3.googleusercontent.com/gps-cs-s/AHVAweqXRclDpz-A0C8kGDZ9_9T_lSOa54QEJjxdrmu1QHEnRCa7XzN_mN_-IcTSLP5KmCKW1jMM9sf16mHhhiX7ycn2zJpC2hetUcFgR2XNgkadZOsVvnXKvYvh_fIRF7J-5Z_kAF0=s1000",
+    image1.src,
+    image2.src,
+    image3.src,
+    image4.src,
+    image5.src,
   ];
 
   return (

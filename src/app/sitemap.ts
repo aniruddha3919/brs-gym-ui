@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://brs-gym.vercel.app'
+    const baseUrl = 'https://www.brsgym.in'
 
     return [
         {
@@ -33,12 +33,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.5,
-        },
-        {
-            url: `${baseUrl}/best-gym-in-hatiara`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.9,
         },
     ]
 }

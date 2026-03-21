@@ -9,6 +9,7 @@ import {
   GallerySection,
   OpeningHoursSection,
 } from "@/components/sections";
+import WhatsAppButton from "@/components/ui/whatsapp-button";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <GallerySection />
         <OpeningHoursSection />
         <Footer />
+        <WhatsAppButton />
       </div>
     </>
   );

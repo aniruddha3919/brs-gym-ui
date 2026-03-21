@@ -21,7 +21,7 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://brs-gym.vercel.app"),
+  metadataBase: new URL("https://www.brsgym.in"),
   title: "BRS Gym | Best Gym in Hatiara & Noapara | Fitness Meets Results",
   description: "Join BRS Gym, the best gym in Hatiara, Noapara, Dashdrone, and Jyangra. Premium equipment, expert trainers, and a results-driven atmosphere for weight loss, bodybuilding, and fitness.",
   keywords: ["Best gym in Hatiara", "Gym in Hatiara", "Best gym in Noapara", "Best gym in Dashdrone", "Best gym in Jyangra", "Fitness center Hatiara", "BRS Gym Kolkata", "Unisex gym Hatiara", "Bodybuilding Hatiara", "Weight loss gym Hatiara", "BRS Gym website"],
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "BRS Gym | Best Gym in Hatiara & Noapara",
     description: "Experience next-level training at the best gym in Hatiara. Transform your body with premium equipment and professional guidance.",
-    url: "https://brs-gym.vercel.app",
+    url: "https://www.brsgym.in",
     siteName: "BRS Gym",
     images: [
       {
@@ -71,10 +71,10 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FitnessCenter",
-    "@id": "https://brs-gym.vercel.app",
+    "@id": "https://www.brsgym.in",
     "name": "BRS Gym",
     "description": "The best gym in Hatiara, Noapara, Dashdrone, and Jyangra offering premium fitness facilities, professional trainers, and specialized workout programs.",
-    "url": "https://brs-gym.vercel.app",
+    "url": "https://www.brsgym.in",
     "telephone": "+919748882498",
     "address": {
       "@type": "PostalAddress",

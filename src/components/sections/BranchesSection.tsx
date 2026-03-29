@@ -20,8 +20,8 @@ const branches = [
     glowColor: "platinum", // Platinum glow for first card
   },
   {
-    name: "BRS GYM Noapara",
-    address: "Green Home Apartment, near Hatiara, Noapara, Sukanta Pally, Roypara, Kolkata, West Bengal 700157",
+    name: "BRS GYM Nawpara",
+    address: "Green Home Apartment, near Hatiara, Nawpara, Sukanta Pally, Roypara, Kolkata, West Bengal 700157",
     phone: "09073274128",
     phoneRaw: "9073274128",
     rating: 4.9,

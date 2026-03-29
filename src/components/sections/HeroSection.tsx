@@ -98,7 +98,7 @@ const HeroSection = () => {
     return () => {
       clearInterval(cursorInterval);
     };
-  }, []);
+  }, [isVideoLoaderReady]);
 
   // Floating particles animation variants
   const particleVariants: Variants = {
@@ -306,7 +306,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            <h1 className="font-bebas-neue font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] tracking-tight text-white mb-2 sm:mb-3">
+            <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] tracking-tight text-white mb-2 sm:mb-3">
               {displayedHeading1}
               {displayedHeading1 === heading1 && !displayedHeading2 && showCursor && (
                 <span className="animate-pulse">|</span>

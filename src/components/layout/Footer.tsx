@@ -41,7 +41,7 @@ const Footer = () => {
 
             <div className="flex gap-4">
               <motion.a
-                href="https://www.instagram.com/brs_gym_official/"
+                href="https://www.instagram.com/brsgym/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -50,7 +50,7 @@ const Footer = () => {
               >
                 <Instagram size={18} />
               </motion.a>
-              <motion.a
+              {/* <motion.a
                 href="https://www.facebook.com/brsgym"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -59,7 +59,7 @@ const Footer = () => {
                 aria-label="Facebook"
               >
                 <Facebook size={18} />
-              </motion.a>
+              </motion.a> */}
             </div>
           </motion.div>
 

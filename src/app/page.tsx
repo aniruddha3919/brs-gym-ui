@@ -5,6 +5,7 @@ import {
   HeroSection,
   SocialProofSection,
   BranchesSection,
+  PricingSection,
   AboutSection,
   GallerySection,
   OpeningHoursSection,
@@ -20,6 +21,7 @@ export default function Home() {
         <HeroSection />
         <SocialProofSection />
         <BranchesSection />
+        <PricingSection />
         <AboutSection />
         <GallerySection />
         <OpeningHoursSection />

@@ -165,7 +165,7 @@ const PricingSection = () => {
                             Add-on
                           </span>
                         </span>
-                        <span className="text-xs text-muted-foreground font-body mt-1">Dedicated 1-on-1 coaching</span>
+                       
                       </div>
                       <div className="text-right flex items-center self-start sm:self-auto relative z-10 sm:ml-2">
                         <IndianRupee size={16} className={`${titleColor} sm:w-[18px] sm:h-[18px]`} />
